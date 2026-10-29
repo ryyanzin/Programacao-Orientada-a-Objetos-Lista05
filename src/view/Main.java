@@ -1,5 +1,8 @@
-import model.questao3.Smartphone;
-import model.questao4.OperacaoMatematica;
+import model.questao3.*;
+import model.questao4.*;
+import model.questao5.*;
+import java.util.Arrays;
+import java.util.List;
 
 void main() {
 
@@ -18,15 +21,33 @@ void main() {
     // Questão 4 - Expressões lambda
 
     OperacaoMatematica soma = (a, b) -> a + b;
-    System.out.println(soma.executar(10, 5));
+    System.out.println("\nO resultado da soma é: " + soma.executar(10, 5));
 
     OperacaoMatematica subtracao = (a, b) -> a - b;
-    System.out.println(subtracao.executar(10, 5 ));
+    System.out.println("O resultado da subtração é: " + subtracao.executar(10, 5 ));
 
     OperacaoMatematica multiplicacao = (a, b) -> a * b;
-    System.out.println(multiplicacao.executar(10, 5 ));
+    System.out.println("O resultado da multiplicação é: " + multiplicacao.executar(10, 5 ));
 
     OperacaoMatematica divisao = (a, b) -> a / b;
-    System.out.println(divisao.executar(10, 5 ));
+    System.out.println("O resultado da divisão é: " + divisao.executar(10, 5) + "\n");
+
+    // Questão 5
+
+    RelatorioFinanceiro relatorio =  new RelatorioFinanceiro();
+
+    Contrato contrato = new Contrato();
+
+    List<Imprimivel> documentos = Arrays.asList( relatorio,  contrato );
+
+    for (Imprimivel documento : documentos) {
+        documento.imprimir();
+    }
+
+    List<EnviavelPorEmail> enviaveis = Arrays.asList( relatorio );
+
+    for (EnviavelPorEmail documento : enviaveis) {
+        documento.enviar("usuario@email.com");
+    }
 
 }
